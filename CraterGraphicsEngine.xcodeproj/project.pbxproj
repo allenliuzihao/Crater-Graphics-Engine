@@ -8,23 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		5083079C251C058900021A6D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5083079B251C058900021A6D /* main.cpp */; };
+		508307D1251C16E800021A6D /* libvulkan.1.2.148.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 508307A5251C0FE800021A6D /* libvulkan.1.2.148.dylib */; };
+		508307D3251C16E800021A6D /* libvulkan.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 508307A4251C0FE800021A6D /* libvulkan.1.dylib */; };
+		508307D5251C174200021A6D /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 508307CB251C15C300021A6D /* libglfw.3.3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		50830796251C058900021A6D /* CopyFiles */ = {
+		508307C2251C130500021A6D /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			dstPath = "";
+			dstSubfolderSpec = 10;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		50830798251C058900021A6D /* CraterGraphicsEngine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CraterGraphicsEngine; sourceTree = BUILT_PRODUCTS_DIR; };
 		5083079B251C058900021A6D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		508307A4251C0FE800021A6D /* libvulkan.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.dylib; path = ../SDKs/VulkanSDK/macOS/lib/libvulkan.1.dylib; sourceTree = "<group>"; };
+		508307A5251C0FE800021A6D /* libvulkan.1.2.148.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.2.148.dylib; path = ../SDKs/VulkanSDK/macOS/lib/libvulkan.1.2.148.dylib; sourceTree = "<group>"; };
+		508307B1251C122000021A6D /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.dylib; path = "../SDKs/glfw-3.3.2/lib-macos/libglfw.3.dylib"; sourceTree = "<group>"; };
+		508307CB251C15C300021A6D /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../../usr/local/Cellar/glfw/3.3.2/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +40,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				508307D5251C174200021A6D /* libglfw.3.3.dylib in Frameworks */,
+				508307D3251C16E800021A6D /* libvulkan.1.dylib in Frameworks */,
+				508307D1251C16E800021A6D /* libvulkan.1.2.148.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +54,7 @@
 			children = (
 				5083079A251C058900021A6D /* CraterGraphicsEngine */,
 				50830799251C058900021A6D /* Products */,
+				508307A3251C0FE800021A6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +74,17 @@
 			path = CraterGraphicsEngine;
 			sourceTree = "<group>";
 		};
+		508307A3251C0FE800021A6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				508307CB251C15C300021A6D /* libglfw.3.3.dylib */,
+				508307B1251C122000021A6D /* libglfw.3.dylib */,
+				508307A5251C0FE800021A6D /* libvulkan.1.2.148.dylib */,
+				508307A4251C0FE800021A6D /* libvulkan.1.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -69,9 +92,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5083079F251C058900021A6D /* Build configuration list for PBXNativeTarget "CraterGraphicsEngine" */;
 			buildPhases = (
-				50830794251C058900021A6D /* Sources */,
 				50830795251C058900021A6D /* Frameworks */,
-				50830796251C058900021A6D /* CopyFiles */,
+				50830794251C058900021A6D /* Sources */,
+				508307C2251C130500021A6D /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -239,9 +262,22 @@
 		508307A0251C058900021A6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L4KKCW4ALG;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/Users/zihaoliu/Desktop/After.Grad/projects/Crater.Graphics/SDKs/VulkanSDK/macOS/include,
+					"/Users/zihaoliu/Desktop/After.Grad/projects/Crater.Graphics/SDKs/glfw-3.3.2/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/Users/zihaoliu/Desktop/After.Grad/projects/Crater.Graphics/SDKs/VulkanSDK/macOS/lib,
+					"/Users/zihaoliu/Desktop/After.Grad/projects/Crater.Graphics/SDKs/glfw-3.3.2/lib-macos",
+					/usr/local/Cellar/glfw/3.3.2/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -249,9 +285,22 @@
 		508307A1251C058900021A6D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L4KKCW4ALG;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/Users/zihaoliu/Desktop/After.Grad/projects/Crater.Graphics/SDKs/VulkanSDK/macOS/include,
+					"/Users/zihaoliu/Desktop/After.Grad/projects/Crater.Graphics/SDKs/glfw-3.3.2/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/Users/zihaoliu/Desktop/After.Grad/projects/Crater.Graphics/SDKs/VulkanSDK/macOS/lib,
+					"/Users/zihaoliu/Desktop/After.Grad/projects/Crater.Graphics/SDKs/glfw-3.3.2/lib-macos",
+					/usr/local/Cellar/glfw/3.3.2/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
