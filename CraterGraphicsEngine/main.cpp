@@ -5,6 +5,9 @@
 #include <stdexcept>
 
 #include "utilities.hpp"
+#include "vkRender.hpp"
+
+vkRender* render = nullptr;
 
 int main(int argc, const char * argv[]) {
     glfwInit();
@@ -12,18 +15,19 @@ int main(int argc, const char * argv[]) {
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
     GLFWwindow* window = glfwCreateWindow(CG_window::WINDOW_WIDTH, CG_window::WINDOW_HEIGHT, CG_window::WINDOW_NAME, nullptr, nullptr);
 
-    uint32_t extensionCount = 0;
-    vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
-
-    std::cout << extensionCount << " extensions supported\n";
-
+    // init render
+    render = new vkRender(window);
+    
     while(!glfwWindowShouldClose(window)) {
         glfwPollEvents();
     }
+
+    delete render;
 
     glfwDestroyWindow(window);
 
     glfwTerminate();
 
+    
     return 0;
 }

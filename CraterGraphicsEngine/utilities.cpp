@@ -14,6 +14,9 @@ const uint32_t CG_vkRender::API_VERSION = VK_API_VERSION_1_2;
     const bool CG_vkRender::enableValidationLayers = true;
 #endif
 
+const std::vector<const char*> CG_vkRender::validationLayers = {
+    "VK_LAYER_KHRONOS_validation"
+};
 
 // window constants
 const uint32_t CG_window::WINDOW_WIDTH = 1503;

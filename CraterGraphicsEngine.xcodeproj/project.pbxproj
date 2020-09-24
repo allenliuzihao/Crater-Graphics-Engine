@@ -11,25 +11,24 @@
 		508307D1251C16E800021A6D /* libvulkan.1.2.148.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 508307A5251C0FE800021A6D /* libvulkan.1.2.148.dylib */; };
 		508307D3251C16E800021A6D /* libvulkan.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 508307A4251C0FE800021A6D /* libvulkan.1.dylib */; };
 		508307D5251C174200021A6D /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 508307CB251C15C300021A6D /* libglfw.3.3.dylib */; };
-		50BE4EDE251D3D88002DFA55 /* libglfw.3.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 508307CB251C15C300021A6D /* libglfw.3.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		50BE4EDF251D3D8A002DFA55 /* libvulkan.1.2.148.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 508307A5251C0FE800021A6D /* libvulkan.1.2.148.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		50BE4EE0251D3D8B002DFA55 /* libvulkan.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 508307A4251C0FE800021A6D /* libvulkan.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		50BE4EE4251D4272002DFA55 /* vkRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50BE4EE2251D4272002DFA55 /* vkRender.cpp */; };
 		50BE4EE7251D4B86002DFA55 /* utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50BE4EE5251D4B86002DFA55 /* utilities.cpp */; };
+		50BE4EE9251D5278002DFA55 /* libglfw.3.3.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 508307CB251C15C300021A6D /* libglfw.3.3.dylib */; };
+		50BE4EEA251D5278002DFA55 /* libvulkan.1.2.148.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 508307A5251C0FE800021A6D /* libvulkan.1.2.148.dylib */; };
+		50BE4EEB251D5278002DFA55 /* libvulkan.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 508307A4251C0FE800021A6D /* libvulkan.1.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		508307C2251C130500021A6D /* Embed Libraries */ = {
+		50BE4EE8251D526A002DFA55 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				50BE4EE0251D3D8B002DFA55 /* libvulkan.1.dylib in Embed Libraries */,
-				50BE4EDE251D3D88002DFA55 /* libglfw.3.3.dylib in Embed Libraries */,
-				50BE4EDF251D3D8A002DFA55 /* libvulkan.1.2.148.dylib in Embed Libraries */,
+				50BE4EE9251D5278002DFA55 /* libglfw.3.3.dylib in CopyFiles */,
+				50BE4EEA251D5278002DFA55 /* libvulkan.1.2.148.dylib in CopyFiles */,
+				50BE4EEB251D5278002DFA55 /* libvulkan.1.dylib in CopyFiles */,
 			);
-			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -109,8 +108,8 @@
 			buildConfigurationList = 5083079F251C058900021A6D /* Build configuration list for PBXNativeTarget "CraterGraphicsEngine" */;
 			buildPhases = (
 				50830795251C058900021A6D /* Frameworks */,
+				50BE4EE8251D526A002DFA55 /* CopyFiles */,
 				50830794251C058900021A6D /* Sources */,
-				508307C2251C130500021A6D /* Embed Libraries */,
 			);
 			buildRules = (
 			);
