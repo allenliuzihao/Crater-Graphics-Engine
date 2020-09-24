@@ -14,6 +14,7 @@
 		50BE4EDE251D3D88002DFA55 /* libglfw.3.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 508307CB251C15C300021A6D /* libglfw.3.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		50BE4EDF251D3D8A002DFA55 /* libvulkan.1.2.148.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 508307A5251C0FE800021A6D /* libvulkan.1.2.148.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		50BE4EE0251D3D8B002DFA55 /* libvulkan.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 508307A4251C0FE800021A6D /* libvulkan.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		50BE4EE4251D4272002DFA55 /* vkRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50BE4EE2251D4272002DFA55 /* vkRender.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,8 @@
 		508307B1251C122000021A6D /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.dylib; path = "../SDKs/glfw-3.3.2/lib-macos/libglfw.3.dylib"; sourceTree = "<group>"; };
 		508307CB251C15C300021A6D /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../../usr/local/Cellar/glfw/3.3.2/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		50BE4EE1251D3F57002DFA55 /* Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		50BE4EE2251D4272002DFA55 /* vkRender.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vkRender.cpp; sourceTree = "<group>"; };
+		50BE4EE3251D4272002DFA55 /* vkRender.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = vkRender.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 			children = (
 				5083079B251C058900021A6D /* main.cpp */,
 				50BE4EE1251D3F57002DFA55 /* Utilities.h */,
+				50BE4EE2251D4272002DFA55 /* vkRender.cpp */,
+				50BE4EE3251D4272002DFA55 /* vkRender.hpp */,
 			);
 			path = CraterGraphicsEngine;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50BE4EE4251D4272002DFA55 /* vkRender.cpp in Sources */,
 				5083079C251C058900021A6D /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
