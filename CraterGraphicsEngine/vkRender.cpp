@@ -3,6 +3,7 @@
 vkRender::vkRender(GLFWwindow* window) {
     try {
         createInstance();
+        setUpDebugMessenger();
     } catch (std::exception &err){
         std::cerr << "std::exception: " << err.what() << std::endl;
         exit(-1);
@@ -13,6 +14,10 @@ vkRender::vkRender(GLFWwindow* window) {
 }
 
 vkRender::~vkRender(){
+    if (CG_vkRender::enableValidationLayers) {
+        destroyDebugUtilsMessengerEXT(instance, debugMessenger, nullptr);
+    }
+    
     vkDestroyInstance(instance, nullptr);
 }
 
@@ -104,6 +109,37 @@ bool vkRender::checkValidationLayerSupport() {
     });
 }
 
+void vkRender::setUpDebugMessenger(){
+    if(!CG_vkRender::enableValidationLayers){
+        return;
+    }
+
+    VkDebugUtilsMessengerCreateInfoEXT debugUtilsCreateInfo;
+    populateDebugMessengerCreateInfo(debugUtilsCreateInfo);
+    
+    if (createDebugUtilsMessengerEXT(instance, &debugUtilsCreateInfo, nullptr, &debugMessenger) != VK_SUCCESS) {
+        throw std::runtime_error("failed to set up debug messenger!");
+    }
+}
+
+VkResult vkRender::createDebugUtilsMessengerEXT(VkInstance instance,
+                                                const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo,
+                                                const VkAllocationCallbacks* pAllocator,
+                                                VkDebugUtilsMessengerEXT* pDebugMessenger) {
+    auto func = (PFN_vkCreateDebugUtilsMessengerEXT) vkGetInstanceProcAddr(instance, "vkCreateDebugUtilsMessengerEXT");
+    if (func != nullptr) {
+        return func(instance, pCreateInfo, pAllocator, pDebugMessenger);
+    } else {
+        return VK_ERROR_EXTENSION_NOT_PRESENT;
+    }
+}
+
+void vkRender::destroyDebugUtilsMessengerEXT(VkInstance instance, VkDebugUtilsMessengerEXT debugMessenger, const VkAllocationCallbacks* pAllocator) {
+    auto func = (PFN_vkDestroyDebugUtilsMessengerEXT) vkGetInstanceProcAddr(instance, "vkDestroyDebugUtilsMessengerEXT");
+    if (func != nullptr) {
+        func(instance, debugMessenger, pAllocator);
+    }
+}
 
 void vkRender::populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT & createInfo){
     createInfo = {};
