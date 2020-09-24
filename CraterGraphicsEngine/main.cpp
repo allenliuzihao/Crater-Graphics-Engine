@@ -4,13 +4,13 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "Utilities.h"
+#include "utilities.hpp"
 
 int main(int argc, const char * argv[]) {
     glfwInit();
 
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-    GLFWwindow* window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_NAME, nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(CG_window::WINDOW_WIDTH, CG_window::WINDOW_HEIGHT, CG_window::WINDOW_NAME, nullptr, nullptr);
 
     uint32_t extensionCount = 0;
     vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
