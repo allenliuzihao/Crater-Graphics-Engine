@@ -11,9 +11,9 @@
 		508307D1251C16E800021A6D /* libvulkan.1.2.148.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 508307A5251C0FE800021A6D /* libvulkan.1.2.148.dylib */; };
 		508307D3251C16E800021A6D /* libvulkan.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 508307A4251C0FE800021A6D /* libvulkan.1.dylib */; };
 		508307D5251C174200021A6D /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 508307CB251C15C300021A6D /* libglfw.3.3.dylib */; };
-		508307DC251C5D8D00021A6D /* libglfw.3.3.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 508307CB251C15C300021A6D /* libglfw.3.3.dylib */; };
-		508307DD251C5D8D00021A6D /* libvulkan.1.2.148.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 508307A5251C0FE800021A6D /* libvulkan.1.2.148.dylib */; };
-		508307DE251C5D8D00021A6D /* libvulkan.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 508307A4251C0FE800021A6D /* libvulkan.1.dylib */; };
+		50BE4EDE251D3D88002DFA55 /* libglfw.3.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 508307CB251C15C300021A6D /* libglfw.3.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		50BE4EDF251D3D8A002DFA55 /* libvulkan.1.2.148.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 508307A5251C0FE800021A6D /* libvulkan.1.2.148.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		50BE4EE0251D3D8B002DFA55 /* libvulkan.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 508307A4251C0FE800021A6D /* libvulkan.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,20 +23,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				50BE4EE0251D3D8B002DFA55 /* libvulkan.1.dylib in Embed Libraries */,
+				50BE4EDE251D3D88002DFA55 /* libglfw.3.3.dylib in Embed Libraries */,
+				50BE4EDF251D3D8A002DFA55 /* libvulkan.1.2.148.dylib in Embed Libraries */,
 			);
 			name = "Embed Libraries";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		508307DB251C5D8100021A6D /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				508307DC251C5D8D00021A6D /* libglfw.3.3.dylib in CopyFiles */,
-				508307DD251C5D8D00021A6D /* libvulkan.1.2.148.dylib in CopyFiles */,
-				508307DE251C5D8D00021A6D /* libvulkan.1.dylib in CopyFiles */,
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -108,7 +99,6 @@
 			buildConfigurationList = 5083079F251C058900021A6D /* Build configuration list for PBXNativeTarget "CraterGraphicsEngine" */;
 			buildPhases = (
 				50830795251C058900021A6D /* Frameworks */,
-				508307DB251C5D8100021A6D /* CopyFiles */,
 				50830794251C058900021A6D /* Sources */,
 				508307C2251C130500021A6D /* Embed Libraries */,
 			);
@@ -280,9 +270,12 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_ENTITLEMENTS = CraterGraphicsEngine/CraterGraphicsEngine.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				ENABLE_HARDENED_RUNTIME = YES;
+				DEVELOPMENT_TEAM = L4KKCW4ALG;
+				ENABLE_HARDENED_RUNTIME = NO;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					/usr/local/Cellar/glfw/3.3.2/include,
@@ -302,9 +295,12 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_ENTITLEMENTS = CraterGraphicsEngine/CraterGraphicsEngine.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				ENABLE_HARDENED_RUNTIME = YES;
+				DEVELOPMENT_TEAM = L4KKCW4ALG;
+				ENABLE_HARDENED_RUNTIME = NO;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					/usr/local/Cellar/glfw/3.3.2/include,
