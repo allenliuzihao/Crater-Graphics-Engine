@@ -4,6 +4,7 @@ vkRender::vkRender(GLFWwindow* window) {
     try {
         createInstance();
         setUpDebugMessenger();
+        createSurface(window);
     } catch (std::exception &err){
         std::cerr << "std::exception: " << err.what() << std::endl;
         exit(-1);
@@ -14,15 +15,23 @@ vkRender::vkRender(GLFWwindow* window) {
 }
 
 vkRender::~vkRender(){
+    vkDestroySurfaceKHR(instance, surface, nullptr);
+
     if (CG_vkRender::enableValidationLayers) {
         destroyDebugUtilsMessengerEXT(instance, debugMessenger, nullptr);
     }
-    
+
     vkDestroyInstance(instance, nullptr);
 }
 
 void vkRender::draw(){
 
+}
+
+void vkRender::createSurface(GLFWwindow* window){
+    if(glfwCreateWindowSurface(instance, window, nullptr, &surface) != VK_SUCCESS){
+        throw std::runtime_error("failed to create window surface.");
+    }
 }
 
 void vkRender::createInstance(){
@@ -109,6 +118,7 @@ bool vkRender::checkValidationLayerSupport() {
     });
 }
 
+/* debugger */
 void vkRender::setUpDebugMessenger(){
     if(!CG_vkRender::enableValidationLayers){
         return;

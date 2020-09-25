@@ -43,7 +43,7 @@ private:
     
     
     void createInstance();
-    
+    void createSurface(GLFWwindow* window);
     
     std::vector<const char*> getRequiredExtensions();
 
